@@ -1,8 +1,8 @@
-var a = "hello world"; // type is in smallcase
-var movies = ['arraival', 'aliens', 'amadeus'];
-var foundMovie; // it infers as any
-for (var _i = 0, movies_1 = movies; _i < movies_1.length; _i++) {
-    var moive = movies_1[_i];
+"use strict";
+let a = "hello world"; // type is in smallcase
+const movies = ['arraival', 'aliens', 'amadeus'];
+let foundMovie; // it infers as any
+for (let moive of movies) {
     if (moive == 'amadeus') {
         foundMovie = 'amadeus';
     }

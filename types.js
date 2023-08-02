@@ -1,10 +1,11 @@
+"use strict";
 function printobj(person) {
     return person;
 }
 function calculateCost(song) {
     return song.numStreams * 0.0033;
 }
-var mySong = {
+const mySong = {
     title: "Unchained Melody",
     artist: "Righteous Brothers",
     numStreams: 12873321,
@@ -13,4 +14,13 @@ var mySong = {
         writer: "Alex North"
     }
 };
-console.log(calculateCost(mySong));
+const point = { x: 1, y: 1 };
+const newUser = {
+    id: 1007,
+    name: 'blondie'
+};
+console.log(newUser.id);
+const samchi = {
+    numOfLives: 9,
+    breed: 'finile'
+};
