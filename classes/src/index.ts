@@ -18,39 +18,96 @@
 
 // }
 
-class Player {
-  protected score: number = 0;  // why protected?  
+// class Player {
+//   protected score: number = 0;  // why protected?  
 
-  constructor(public first: string, public last: string) {
-    this.first = first;
-    this.last = last;
+//   constructor(public first: string, public last: string) {
+//     this.first = first;
+//     this.last = last;
 
+//   }
+
+//   get fullName(): string {
+//     return `${this.first} ${this.last}`;
+//   }
+
+//   set setScore(newScore: number) {  // no return type anotation
+//     this.score = newScore;
+//   }
+
+
+// }
+
+// class superPlayer extends Player {
+
+//   public isAdmin: boolean = true;
+//   // note : public can only be accesed inside the class not even in child classes
+//   // so we can use protected modifier it allows child classes to access it
+
+//   maxScore() {
+//     this.score = 9999999;
+//   }
+// }
+
+// const mob = new Player("mob", "psycho")
+
+// console.log(mob.fullName)
+
+// mob.setScore = 50
+
+
+// // interface 
+
+// interface Colorful {
+//   color: string;
+// }
+
+// class Bike implements Colorful {
+//   constructor(public color: string) { }
+// }
+
+// Abstract class - TS exclusive
+
+abstract class Employee {
+  constructor(public first: string, public last: string) { }
+
+  // Mandatory implementation of the method due to the abstract keyword
+  abstract getPay(): number;
+
+  // Not mandatory for inheriting classes, thus no abstract keyword
+  greet() {
+    console.log(`Hi, I'm ${this.first}`);
+  }
+}
+
+class PermanantEmployee extends Employee {
+
+  constructor(public first: string, public last: string, private salary: number) {
+    super(first, last)
   }
 
-  get fullName(): string {
-    return `${this.first} ${this.last}`;
+  // since its abstract class it needs to be implemented
+  getPay(): number {
+    return this.salary;
   }
-
-  set setScore(newScore: number) {  // no return type anotation
-    this.score = newScore;
-  }
-
 
 }
 
-class superPlayer extends Player {
+class PartTimeEmployee extends Employee {
 
-  public isAdmin: boolean = true;
-  // note : public can only be accesed inside the class not even in child classes
-  // so we can use protected modifier it allows child classes to access it
-
-  maxScore() {
-    this.score = 9999999;
+  constructor(public first: string, public last: string, private hourlyRate: number, private hoursWorked: number) {
+    super(first, last)
   }
+  // since its abstract class it needs to be implemented
+  getPay(): number {
+    return this.hourlyRate * this.hoursWorked;
+  }
+
 }
 
-const mob = new Player("mob", "psycho")
 
-console.log(mob.fullName)
+const betty = new PermanantEmployee("betty", " pitty", 90000);
+console.log(betty.getPay());
 
-mob.setScore = 50
+const petty = new PartTimeEmployee("petty", "witty", 100, 100);
+console.log(petty.getPay());
