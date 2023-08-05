@@ -19,14 +19,38 @@
 // }
 
 class Player {
-  private score: number = 0;
+  protected score: number = 0;  // why protected?  
+
   constructor(public first: string, public last: string) {
     this.first = first;
     this.last = last;
 
   }
 
+  get fullName(): string {
+    return `${this.first} ${this.last}`;
+  }
+
+  set setScore(newScore: number) {  // no return type anotation
+    this.score = newScore;
+  }
+
 
 }
 
+class superPlayer extends Player {
+
+  public isAdmin: boolean = true;
+  // note : public can only be accesed inside the class not even in child classes
+  // so we can use protected modifier it allows child classes to access it
+
+  maxScore() {
+    this.score = 9999999;
+  }
+}
+
 const mob = new Player("mob", "psycho")
+
+console.log(mob.fullName)
+
+mob.setScore = 50
