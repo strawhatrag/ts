@@ -68,6 +68,7 @@
 
 // Abstract class - TS exclusive
 
+
 abstract class Employee {
   constructor(public first: string, public last: string) { }
 
