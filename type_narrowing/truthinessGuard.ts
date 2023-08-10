@@ -12,4 +12,16 @@ const printLetters = (word?: string) => {
   }
 
   console.log('no words found')
+
+}
+
+
+// equality check  ===
+
+const checkForEquality = (x: string | number, y: string | boolean) => {
+
+  if (x === y) {
+    x.toLowerCase()
+  }
+
 }
