@@ -23,4 +23,16 @@ const totalWatchTime = (watch: TVShow | movie) => {
 }
 
 console.log(totalWatchTime({ title: 'Amadeus', duration: 180 }));
-console.log(totalWatchTime({ title: 'dark', duration: 60, numberofEpisodes: 50 })); 
+console.log(totalWatchTime({ title: 'dark', duration: 60, numberofEpisodes: 50 }));
+
+
+// instanceOf narrowing
+
+const dataCheck = (date: string | Date) => {
+
+  if (date instanceof Date) {  // is a inbuilt obj 
+    console.log(date.toUTCString()); //
+  } else {
+    console.log(new Date(date).toUTCString());
+  }
+}
