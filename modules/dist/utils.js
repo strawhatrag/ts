@@ -1,8 +1,7 @@
-"use strict";
-function add(x, y) {
+export function add(x, y) {
     return x + y;
 }
-function sample(arr) {
+export function sample(arr) {
     if (arr.length === 0) {
         return undefined;
     }
