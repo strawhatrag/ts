@@ -1,0 +1,10 @@
+import _ from "lodash";
+export function add(num1, num2) {
+    return _.add(num1, num2);
+}
+export function subtract(num1, num2) {
+    return num1 - num2;
+}
+export function multiply(num1, num2) {
+    return num1 * num2;
+}
